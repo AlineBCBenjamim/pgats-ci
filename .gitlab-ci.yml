@@ -3,7 +3,8 @@
 # maquina onde o job vai rodar no node.js
         image: node:24
 # Stages - etapa da pipeline
-        stages: - e2e
+        stages: 
+        - e2e
 # nome do job
         e2e-tests:
 # stage que o job vai ser executado         
