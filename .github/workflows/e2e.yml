@@ -10,13 +10,15 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 24
+      - run: node -v
+
+      - run: npm -v
+
+      - run: yarn -v
 
       - run: yarn
 
-      - run: npx playwright install --with-deps
+      - run: npx playwright install
 
       - run: yarn run e2e
 
@@ -25,4 +27,3 @@ jobs:
         with:
           name: playwright-report
           path: playwright-report/
-          
