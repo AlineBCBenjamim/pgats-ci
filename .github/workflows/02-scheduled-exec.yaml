@@ -12,7 +12,12 @@ on:
 
 # cronograma de execução
 # 1 - minutos, 2 - horas, 3 - dia do mês, 4 - mês, 5 - dia da semana
+
+# Roda a cada 30 minutos
     - cron: '*/30 * * * *'
+
+# Roda toda sexta-feira à meia noite
+    - cron: '0 0 * * 5'
 
 jobs:
     # nome do job
