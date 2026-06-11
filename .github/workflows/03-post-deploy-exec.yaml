@@ -9,7 +9,7 @@ name: 'N3 - Execução por Deploy'
 # gatinho por conclusão de outra pipeline = workflow_run
 on:
   workflow_run:
-    workflows: ['N1 - Execução Manual','N2 - Execução Agendada']
+    workflows: ['N1 - Execução Manual', 'N2 - Execução Agendada']
     types:
       - completed
 

@@ -8,11 +8,11 @@ name: 'N4 - Execução Integrada'
 
 on:
   workflow_dispatch:
-# Quando subir um código novo na master dispara a pipeline automatica
+  # Quando subir um código novo na master dispara a pipeline automatica
   push:
     branches:
       - master
-      
+
 # tarefas dentro da pipeline = jobs
 
 jobs:
@@ -84,7 +84,8 @@ jobs:
         run: yarn playwright install
 
       - name: Executando testes E2E
-        run: yarn run e2e
+        run:
+          yarn run e2e
 
           # Salvar relatório quando executar os testes
 
@@ -94,8 +95,6 @@ jobs:
         with:
           path: ./playwright-report
           name: Relatório de Testes E2E
-
-
 
   deploy:
     runs-on: ubuntu-latest
