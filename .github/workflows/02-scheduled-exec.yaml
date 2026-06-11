@@ -17,7 +17,10 @@ on:
 
     # Roda toda sexta-feira à meia noite
     - cron: '0 0 * * 5'
-
+  push:
+    branches:
+      - master
+  # terfas dentro da pipeline = jobs
 jobs:
   # nome do job
   e2e-tests:
@@ -45,3 +48,10 @@ jobs:
         # executando os testes e2e
       - name: Executando testes e2e
         run: yarn run e2e
+      # Salvar relatório quando executar os testes
+      - name: Salvando relatórios de testes
+        uses: actions/upload-artifact@v4
+        if: ${{ always () }}
+        with:
+          path: ./playwright-report
+          name: Relatório de Testes E2E

@@ -8,6 +8,9 @@ name: 'N1 - Execução Manual'
 
 on:
   workflow_dispatch:
+  push:
+    branches:
+      - master
 
 # tarefas dentro da pipeline = jobs
 
@@ -38,3 +41,10 @@ jobs:
         # executando os testes e2e
       - name: Executando testes e2e
         run: yarn run e2e
+        # Salvar relatório quando executar os testes
+      - name: Salvando relatórios de testes
+        uses: actions/upload-artifact@v4
+        if: ${{ always () }}
+        with:
+          path: ./playwright-report
+          name: Relatório de Testes E2E
